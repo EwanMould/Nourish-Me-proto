@@ -1,0 +1,45 @@
+$primary-color: #DAF7A6;
+$accent-color: #91ee91;
+$highlight-color: #008000;
+
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  background-color: $primary-color;
+}
+
+.logo{
+  width: 54px;
+  background-color: transparent;
+}
+
+.nav{
+  background-color: $accent-color;
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  a {
+    text-decoration: none;
+    background-color: transparent;
+  }
+  ul{
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 4rem;
+    color: forestgreen;
+    background-color: transparent;
+
+  }
+  li.active{
+    text-underline: $primary-color;
+    color: $highlight-color;
+  }
+}
+
+
