@@ -1,6 +1,8 @@
-$primary-color: #DAF7A6;
-$accent-color: #91ee91;
-$highlight-color: #008000;
+$primary-color: #FBF2CF;
+$accent-color: #C6EBC5;
+$highlight-color: #A1C298;
+$active_color: #FA7070;
+
 
 *{
   box-sizing: border-box;
@@ -19,27 +21,34 @@ body{
   background-color: $accent-color;
   color: $primary-color;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
   padding: 2rem 1rem;
   a {
-    text-decoration: none;
     background-color: transparent;
+    color: $highlight-color;
+    text-decoration: none;
   }
   ul{
 
     padding: 0;
     margin: 0;
     list-style: none;
-    gap: 4rem;
+    gap: 1rem;
     color: forestgreen;
     background-color: transparent;
+    display: flex;
+    text-decoration: none;
 
   }
   li.active{
-    text-underline: $primary-color;
-    color: $highlight-color;
+    background-color: $active_color;
   }
 }
 
-
+.logIn {
+  border-radius: 5rem;
+  background-color: $primary-color;
+  border-width: 50px;
+}

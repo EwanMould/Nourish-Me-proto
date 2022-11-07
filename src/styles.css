@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background-color: #DAF7A6;
+  background-color: #FBF2CF;
 }
 
 .logo {
@@ -13,28 +13,37 @@ body {
 }
 
 .nav {
-  background-color: #91ee91;
-  color: #DAF7A6;
+  background-color: #C6EBC5;
+  color: #FBF2CF;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
   padding: 2rem 1rem;
 }
 .nav a {
-  text-decoration: none;
   background-color: transparent;
+  color: #A1C298;
+  text-decoration: none;
 }
 .nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  gap: 4rem;
+  gap: 1rem;
   color: forestgreen;
   background-color: transparent;
+  display: flex;
+  text-decoration: none;
 }
 .nav li.active {
-  text-underline: #DAF7A6;
-  color: #008000;
+  background-color: #FA7070;
+}
+
+.logIn {
+  border-radius: 5rem;
+  background-color: #FBF2CF;
+  border-width: 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */
