@@ -1,7 +1,8 @@
 $primary-color: #FBF2CF;
 $accent-color: #C6EBC5;
 $highlight-color: #A1C298;
-$active_color: #FA7070;
+$active_color: #F7A4A4;
+$hover_color: #FA7070;
 
 
 *{
@@ -17,7 +18,12 @@ body{
   background-color: transparent;
 }
 
-.nav{
+.container{
+  text-align: center;
+  margin: 1rem
+}
+
+.nav {
   background-color: $accent-color;
   color: $primary-color;
   display: flex;
@@ -25,10 +31,15 @@ body{
   align-items: center;
   gap: 2rem;
   padding: 2rem 1rem;
-  a {
+
+  a{
     background-color: transparent;
     color: $highlight-color;
     text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    padding: .25rem;
   }
   ul{
 
@@ -45,7 +56,11 @@ body{
   li.active{
     background-color: $active_color;
   }
+  li:hover{
+    background-color: $hover_color;
+  }
 }
+
 
 .logIn {
   border-radius: 5rem;

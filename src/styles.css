@@ -12,6 +12,11 @@ body {
   background-color: transparent;
 }
 
+.container {
+  text-align: center;
+  margin: 1rem;
+}
+
 .nav {
   background-color: #C6EBC5;
   color: #FBF2CF;
@@ -25,6 +30,10 @@ body {
   background-color: transparent;
   color: #A1C298;
   text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  padding: 0.25rem;
 }
 .nav ul {
   padding: 0;
@@ -37,6 +46,9 @@ body {
   text-decoration: none;
 }
 .nav li.active {
+  background-color: #F7A4A4;
+}
+.nav li:hover {
   background-color: #FA7070;
 }
 

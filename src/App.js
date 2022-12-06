@@ -4,36 +4,35 @@ import LogIn from "./pages/LogIn";
 import MealCurator from "./pages/Meal-Curator";
 import HomePage from "./pages/HomePage";
 import Tracking from "./pages/Tracking";
+import React from 'react';
 
 
 function App() {
     let Component
       switch (window.location.pathname){
-        case "/":
-            Component = App;
-          break
-        case "/pantry":
+        case "/Pantry.js":
             Component = Pantry;
           break
-        case "/meal-curator":
+        case "/Meal-Curator.js":
             Component = MealCurator;
           break
-        case "/login":
+        case "/LogIn.js":
             Component = LogIn;
           break
-        case "/tracking":
+        case "/Tracking.js":
             Component = Tracking;
           break
-        case "/homepage":
+        case "/Homepage.js":
           Component = HomePage
           break
         default:
-            Component = App;
+            Component = HomePage;
       }
     return(
         <>
           <NavBar />
-            <Component />
+          <div className="container"><Component/></div>
+
         </>
   );
 }
