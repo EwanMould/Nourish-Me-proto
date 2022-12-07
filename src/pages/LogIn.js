@@ -1,19 +1,21 @@
 import React from 'react';
-//import {supabase} from "../lib/supabaseClient";
+import {supabase} from "../lib/supabaseClient";
 
 
 export default function LogIn() {
-  /*
-    const logInGoogle = async () => {
+
+
+    const logInGitHub = async () => {
       await supabase.auth.signInWithOAuth({
-        provider: 'google'
+        provider: 'github'
       })
     }
-  */
+
     return (
-
-          <h1>Login</h1>
-
+      <>
+        <h1>Login</h1>
+        <button onClick={logInGitHub}>Login with github</button>
+      </>
     );
 
 }
