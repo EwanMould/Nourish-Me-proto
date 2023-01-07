@@ -1,14 +1,13 @@
 import NavBar from "./NavBar";
-import Pantry from "./pages/Pantry";
 import LogIn from "./pages/LogIn";
 import MealCurator from "./pages/Meal-Curator";
 import HomePage from "./pages/HomePage";
 import Tracking from "./pages/Tracking";
 import React from 'react';
-
-
+import Pantry from "./pages/Pantry";
+import SignUp from "./pages/SignUp";
 function App() {
-    let Component
+  let Component
       switch (window.location.pathname){
         case "/Pantry.js":
             Component = Pantry;
@@ -25,6 +24,9 @@ function App() {
         case "/Homepage.js":
           Component = HomePage
           break
+        case "/SignUp.js":
+          Component = SignUp
+          break
         default:
             Component = HomePage;
       }
@@ -32,7 +34,6 @@ function App() {
         <>
           <NavBar />
           <div className="container"><Component/></div>
-
         </>
   );
 }
