@@ -5,8 +5,6 @@ import MealCurator from "./pages/Meal-Curator";
 import HomePage from "./pages/HomePage";
 import Tracking from "./pages/Tracking";
 import React from 'react';
-
-
 function App() {
     let Component
       switch (window.location.pathname){
