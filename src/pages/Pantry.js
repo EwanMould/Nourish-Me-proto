@@ -3,33 +3,30 @@ import {supabase} from "../lib/supabaseClient";
 export default function Pantry() {
     const [ingredients, setIngredients] = useState('');
     const [formError, setFormError] = useState(null);
-    const [user, setUser] = useState({});
-
-
-
   const handleSubmit = async (e) => {
-      e.preventDefault()
+    const id = localStorage.getItem('id')
+    e.preventDefault()
 
-    const userInfo = await supabase.auth.getUser();
-
-      if(!ingredients){
-        setFormError('please fill in the box')
-      }
-
-      const { data, error } = await supabase
-        .from('Pantry')
-
-      if (data) {
-        console.log(data)
-        setFormError(null)
-      }
-
-      if(error){
-        console.log(error)
-        setFormError('please fill in the box')
-      }
+    if (!ingredients) {
+      setFormError('please fill in the box')
     }
 
+    const {data, error} = await supabase
+      .from('Pantry')
+      .update({pantry: ingredients})
+      .eq('user_id', id)
+      .select()
+
+    if (error) {
+      setFormError('please fill in the box')
+      console.log(error)
+    }
+    if (data) {
+      setFormError('updated')
+      console.log(data)
+
+    }
+  }
     return (
       <>
         <h1>Pantry</h1>

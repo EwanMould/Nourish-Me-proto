@@ -1,32 +1,33 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './styles.css'
 import apple from './apple.png'
 import {supabase} from "./lib/supabaseClient";
 
 export default function NavBar() {
-  const [name, setName] = useState('');
-  const [loading, setLoading] = useState(true);
-  const getUser = async () => {
-    try {
-      const user = await supabase.auth.getUser();
-      localStorage.setItem('id', user.data.user.id)
-      let {data, error, status} = await supabase
-        .from('profiles')
-        .select(`full_name`)
-        .eq('id', user.data.user.id)
-        .single();
+  useEffect(() => {
+      const getUser = async () => {
+        try {
+          const user = await supabase.auth.getUser();
+          localStorage.setItem('id', user.data.user.id)
+          let {data, error} = await supabase
+            .from('profiles')
+            .select('id , full_name')
+            .eq('id', user.data.user.id)
 
-      if(data){
-        setName(user.data.user.aud)
-        console.log(name);
+          if (data) {
+            const {full_name} = data[0];
+            localStorage.setItem('name', full_name)
+          }
+
+        } catch (error) {
+          alert(error.message)
+        }
+        getUser().then()
       }
+    },
+    []);
 
-    } catch (error) {
-      alert(error.message)
-    }finally {
-      setLoading(false)
-    }
-  };
+
 
   return (
     <nav className='nav'>

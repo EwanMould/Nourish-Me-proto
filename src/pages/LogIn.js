@@ -6,32 +6,29 @@ export default function LogIn() {
     await supabase.auth.signInWithOAuth({
       provider: 'github'
     })
-    setMessage('Signed in with GitHub')
-  }
-  const LogInGoogle = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'google'
-    })
-    setMessage('work in progress')
+    alert('Signed in with GitHub')
   }
 
   const LogInFacebook = async () => {
     await supabase.auth.signInWithOAuth({
       provider: 'facebook'
     })
-    setMessage('Signed in with Facebook')
+    alert('Signed in with Facebook')
   }
 
   async function signOut() {
     const { error } = await supabase.auth.signOut()
     setMessage('You have signed out')
+    localStorage.clear();
+    if(error){
+      setMessage(error.message);
+    }
   }
 
   return (
     <>
       <h1>Login</h1>
       <button onClick={LogInGitHub} >Login with github</button>
-      <button onClick={LogInGoogle} >Log in with Google</button>
       <button onClick={LogInFacebook} >Log in with facebook</button>
       <div> <a href = '/SignUp.js'>Create an account</a></div>
 

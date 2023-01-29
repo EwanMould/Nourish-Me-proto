@@ -13,8 +13,7 @@ body {
 }
 
 .container {
-  text-align: center;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .nav {
@@ -56,6 +55,35 @@ body {
   border-radius: 5rem;
   background-color: #FBF2CF;
   border-width: 50px;
+}
+
+.recipe-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.recipe-card {
+  width: 500px;
+  padding: 10px;
+  background: #C6EBC5;
+  box-sizing: border-box;
+  border-radius: 6px;
+  position: relative;
+}
+.recipe-card .serves {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #F7A4A4;
+  color: #FBF2CF;
+  border-radius: 6px;
+  width: 75px;
+  height: 0;
+  padding: 20px 0;
+  line-height: 0;
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
