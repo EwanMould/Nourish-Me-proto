@@ -12,7 +12,7 @@ export default function HomePage() {
         .select()
 
       if (error){
-        setFetchError('could not fetch recipe of the day')
+        setFetchError('')
         setRecipes(null)
         console.log(error)
       }

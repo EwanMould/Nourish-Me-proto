@@ -35,7 +35,6 @@ export default function NavBar() {
       <ul>
         <CustomLink href='/Pantry.js'>Pantry</CustomLink>
         <CustomLink href='/Meal-Curator.js'>Meal Curator</CustomLink>
-        <CustomLink href='/Tracking.js'>Health Tracking</CustomLink>
         <CustomLink href='/LogIn.js'>Log In</CustomLink>
       </ul>
     </nav>

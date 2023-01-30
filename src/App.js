@@ -2,7 +2,6 @@ import NavBar from "./NavBar";
 import LogIn from "./pages/LogIn";
 import MealCurator from "./pages/Meal-Curator";
 import HomePage from "./pages/HomePage";
-import Tracking from "./pages/Tracking";
 import React from 'react';
 import Pantry from "./pages/Pantry";
 import SignUp from "./pages/SignUp";
@@ -17,9 +16,6 @@ function App() {
           break
         case "/LogIn.js":
             Component = LogIn;
-          break
-        case "/Tracking.js":
-            Component = Tracking;
           break
         case "/Homepage.js":
           Component = HomePage
