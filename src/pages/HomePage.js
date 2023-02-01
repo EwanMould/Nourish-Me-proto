@@ -32,7 +32,7 @@ export default function HomePage() {
           <h1>Hello, {localStorage.getItem('name')}</h1>
           {fetchError && (<p>{fetchError}</p>)}
           <div>
-            <h2>Here are the recipes we have :)</h2>
+            <h2>Here are the recipes we have.</h2>
           {recipes&& (
             <div className='recipe'>
               <div className='recipe-grid'>
@@ -43,8 +43,6 @@ export default function HomePage() {
             </div>
           )}
           </div>
-
-
         </>
     )
 }

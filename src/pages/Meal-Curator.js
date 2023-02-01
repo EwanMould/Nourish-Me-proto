@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {supabase} from "../lib/supabaseClient";
-import RecipeCard from "../components/RecipeCard";
+import RecipeCardMeal from "../components/RecipeCardMeal";
 export default function MealCurator() {
   const [ingredients, setIngredients] = useState('')
   const [fetchError, setFetchError] = useState(null)
   const [recipes, setRecipes] = useState({})
-  const [formError, setFormError] = useState('');
   const [minimumMatches, setMinimumMatches] = useState(0);
-  const [allowedRecipes, setAllowedRecipes] = useState(null);
+  const [allowedRecipes, setAllowedRecipes] = useState([]);
   const [bannedItems, setBannedItems] = useState('');
-  let allowedRecipesId = new Array(0);
   let allowedRecipeArray = new Array(0);
 
   const useCurrentList = async (e) => {
@@ -36,21 +34,26 @@ export default function MealCurator() {
     const numberOfRecipes = recipes.length
     let indexOfIngredients;
     let indexOfRecipes;
-    let indexOfAllowedRecipes = 0;
     const bannedItemsArray = bannedItems.split(", ")
     console.log(bannedItemsArray)
     console.log(ingredientList)
     for (indexOfIngredients = 0; indexOfIngredients < numberOfIngredients; indexOfIngredients++) {
+      let matches = 0
       for (indexOfRecipes = 0; indexOfRecipes < numberOfRecipes; indexOfRecipes++) {
         let {ingredients: ingredients1} = recipes[indexOfRecipes];
         let recipeIngredients = ingredients1;
         let indexOfRecipeIngredients;
         let recipePass = false
+        let subRecipePass = true
 
-        //need to work on the logic of this >:(
+        //removes recipe if it contains any contraband
         let indexOfBannedItemsArray
         for(indexOfBannedItemsArray = 0; indexOfBannedItemsArray <= recipeIngredients.length; indexOfBannedItemsArray++){
-          if(!recipeIngredients.includes(bannedItemsArray[indexOfBannedItemsArray]) && indexOfBannedItemsArray === recipeIngredients.length){
+          if(recipeIngredients.includes(bannedItemsArray[indexOfBannedItemsArray])){
+            console.log('naughty recipe')
+            subRecipePass = false
+          }
+          else if(indexOfBannedItemsArray === recipeIngredients.length && subRecipePass){
             recipePass = true
           }
         }
@@ -58,7 +61,8 @@ export default function MealCurator() {
         if(recipePass) {
           for (indexOfRecipeIngredients = 0; indexOfRecipeIngredients < recipeIngredients.length; indexOfRecipeIngredients++) {
             if (ingredientList[indexOfIngredients] === recipeIngredients[indexOfRecipeIngredients]) {
-              if (!allowedRecipeArray.includes(recipes[indexOfRecipes])) {
+              matches++
+              if (!allowedRecipeArray.includes(recipes[indexOfRecipes]) && (matches >= minimumMatches)) {
                 allowedRecipeArray.push(recipes[indexOfRecipes])
                 setAllowedRecipes(allowedRecipeArray);
               }
@@ -110,7 +114,7 @@ export default function MealCurator() {
 
           <button>Submit</button>
 
-          {formError && <p className='error'>{formError}</p>}
+          {fetchError && <p className= 'error'>{fetchError}</p>}
         </form>
 
         <div>
@@ -122,7 +126,7 @@ export default function MealCurator() {
           <div className='recipe'>
             <div className='recipe-grid'>
               {allowedRecipes.map(allowedRecipe => (
-                <RecipeCard key={allowedRecipe.id} recipe={allowedRecipe}/>
+                <RecipeCardMeal key={allowedRecipe.id} recipe={allowedRecipe}/>
               ))}
             </div>
           </div>
