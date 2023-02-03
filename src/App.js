@@ -4,7 +4,6 @@ import MealCurator from "./pages/Meal-Curator";
 import HomePage from "./pages/HomePage";
 import React from 'react';
 import Pantry from "./pages/Pantry";
-import SignUp from "./pages/SignUp";
 function App() {
   let Component
       switch (window.location.pathname){
@@ -19,9 +18,6 @@ function App() {
           break
         case "/Homepage.js":
           Component = HomePage
-          break
-        case "/SignUp.js":
-          Component = SignUp
           break
         default:
             Component = HomePage;

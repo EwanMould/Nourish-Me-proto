@@ -29,9 +29,7 @@ export default function LogIn() {
     <>
       <h1>Login</h1>
       <button onClick={LogInGitHub} >Login with github</button>
-      <button onClick={LogInFacebook} >Log in with facebook</button>
-      <div> <a href = '/SignUp.js'>Create an account</a></div>
-
+      <button onClick={LogInFacebook} >Login with facebook</button>
       <div>
         <button onClick={signOut}>sign out</button>
       </div>
